@@ -22,7 +22,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a Validator with the same name as your model, and it will be included automatically.
+
+```ruby
+class User < ActiveRecord::Base
+  include ::ConcernedValidations::Model
+end
+
+module UserValidator
+  extend ::ConcernedValidations::Base
+
+  validator do
+    validates :name, presence: true
+  end
+end
+```
 
 ## Development
 
@@ -33,7 +47,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/joelmoss/concerned_validations. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/joelmoss/concerned_validations/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
